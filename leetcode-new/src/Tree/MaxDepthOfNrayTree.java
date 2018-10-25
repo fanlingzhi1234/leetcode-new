@@ -37,7 +37,8 @@ class Node {
  */
 public class MaxDepthOfNrayTree {
 
-	public int maxDepth(Node root) {
+	public int maxDepth(TreeNode root) {
         
+		return 0;
     }
 }

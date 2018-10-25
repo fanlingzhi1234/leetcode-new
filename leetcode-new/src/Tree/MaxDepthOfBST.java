@@ -35,5 +35,6 @@ public class MaxDepthOfBST {
 	
 	public int maxDepth(TreeNode root) {
         
+		return 0;
     }
 }

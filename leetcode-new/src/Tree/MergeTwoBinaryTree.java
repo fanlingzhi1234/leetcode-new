@@ -30,7 +30,7 @@ Note: The merging process must start from the root nodes of both trees.
 public class MergeTwoBinaryTree {
 
 	public TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
-        TreeNode current;
+        TreeNode current = t1;
         
         
         
