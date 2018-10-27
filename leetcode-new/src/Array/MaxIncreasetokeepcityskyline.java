@@ -44,10 +44,26 @@ public class MaxIncreasetokeepcityskyline {
 	}
 	
 	public static int maxIncreaseKeepingSkyline(int[][] grid) {
+		int n = grid.length; 
+		int m = grid[0].length;
+		int[] row = new int[n];
+		int[] column = new int[m];
 		
+		for(int i =0; i<n; i++) {
+			for( int j=0; j< m; j++) {
+				row[i] = Math.max(row[i], grid[i][j]);
+				column[j] = Math.max(column[j], grid[i][j]);
+			}
+		}
 		
+		int result=0;
 		
-		return 0;
+		for(int i =0; i<n; i++) {
+			for( int j=0; j< m; j++) {
+				result += Math.min(row[i], column[j]) - grid[i][j];
+			}
+		}
+		return result;
         
     }
 
