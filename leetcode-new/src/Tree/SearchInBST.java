@@ -27,5 +27,33 @@ In the example above, if we want to search the value 5, since there is no node w
 Note that an empty tree is represented by NULL, therefore you would see the expected output (serialized tree format) as [], not null.
  */
 public class SearchInBST {
-
+	public TreeNode searchBST(TreeNode root, int val) {
+        if(root == null)
+        	return null;
+        if(root.val == val)
+        	return root;
+        else if(root.val < val) {
+        	return searchBST(root.left, val);
+        }
+        else if(root.val > val) {
+        	return searchBST(root.right, val);
+        }
+        return null;
+    }
+	
+	public TreeNode searchBST2(TreeNode root, int val) {
+		TreeNode current = root;
+		while(current.val != val){
+			if(val<current.val){
+				current = current.left;
+			}
+			else{
+				current = current.right;
+			}
+			if(current == null){
+				return null;
+			}
+		}
+		return current;
+    }
 }

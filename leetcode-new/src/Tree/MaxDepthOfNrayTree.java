@@ -1,4 +1,8 @@
 package Tree;
+
+import java.util.List;
+
+
 /**
  * 559. Maximum Depth of N-ary Tree
  * @author Reuxs
@@ -37,8 +41,24 @@ class Node {
  */
 public class MaxDepthOfNrayTree {
 
-	public int maxDepth(TreeNode root) {
-        
-		return 0;
+	public int maxDepth(Node root) {
+		 if(root == null) return 0;
+	        int maxDepth = 0;
+	        for(Node child : root.children)
+	            maxDepth = Math.max(maxDepth, maxDepth(child));
+	        return maxDepth + 1;
     }
+	
+	
+	public int maxDepth2(Node root) {
+		if(root == null) return 0;
+		
+		int maxDepth = 0;
+		for(Node child : root.children) {
+			maxDepth = Math.max(maxDepth, maxDepth(child));
+		}
+		
+		return maxDepth +1;
+		
+	}
 }

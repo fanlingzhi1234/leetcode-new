@@ -1,4 +1,7 @@
 package Tree;
+
+import static org.hamcrest.CoreMatchers.instanceOf;
+
 /**
  * 104. Maximum Depth of Binary Tree
  * @author Reuxs
@@ -32,9 +35,17 @@ return its depth = 3.
  */
 public class MaxDepthOfBST {
 
+	public static void main(String args[]) {
+		
+	}
+	
 	
 	public int maxDepth(TreeNode root) {
+		
+		if(root == null) return 0;
+		int maxDepth = Math.max(maxDepth(root.left), maxDepth(root.right));
+		
+		return maxDepth +1;
         
-		return 0;
     }
 }
