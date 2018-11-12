@@ -40,10 +40,68 @@ public class MaxAreaOfIsland {
 		
 		System.out.println(maxAreaOfIsland(nums));
 	}
+	
+	//use dfs 28ms, 36%; if we add visited to -1, 24ms 54%
 	public static int maxAreaOfIsland(int[][] grid) {
-		if(grid.length == 1) return 0;
+		if(grid.length == 0 || grid[0].length == 0){
+	        return 0;    
+	    }
         int res=0;
+        
+        for( int i=0; i< grid.length; i++) {
+        	for(int j=0; j< grid[0].length;j++) {
+        		if(grid[i][j] == 1) {
+        			res = Math.max(res,AreaOfIsland(grid,i,j));
+        		}
+        	}
+        }
         
         return res;
     }
+	public static int AreaOfIsland(int[][] grid, int i, int j) {
+		
+		if(i >= 0 && i< grid.length && j>=0 && j< grid[0].length && grid[i][j] ==1) {
+			grid[i][j] = 0;
+			return 1 + AreaOfIsland(grid, i+1, j) + AreaOfIsland(grid, i-1, j) + AreaOfIsland(grid, i, j+1) + AreaOfIsland(grid, i, j-1);
+		}
+		
+		return 0;
+	}
+	
+	//14ms 100%
+	public int maxAreaOfIsland2(int[][] grid) {
+	    if(grid.length == 0 || grid[0].length == 0){
+	        return 0;    
+	    }
+	    int m = grid.length, n = grid[0].length;
+	    int max = 0;
+	    int[] count = new int[1];
+	    for(int i = 0; i < m; i++){
+	        for(int j = 0; j < n; j++){
+	            if(grid[i][j] == 1){
+	                count[0] = 0;
+	                dfs(grid, i, j, m, n, count);       
+	                max = Math.max(count[0], max);
+	            }
+	        }
+	    }
+	    return max;
+	}
+
+	private void dfs(int[][] grid, int i, int j, int m, int n, int[] count){
+	    if(i < 0 || j < 0 || i>= m || j >= n || grid[i][j] != 1){
+	        return;    
+	    }
+	    //marked visited;
+	    grid[i][j] = -1;
+	    count[0]++;
+	    dfs(grid, i + 1, j, m, n, count);
+	    dfs(grid, i - 1, j, m, n, count);
+	    dfs(grid, i, j + 1, m, n, count);
+	    dfs(grid, i, j - 1, m, n, count);
+	}
+	
+	
+    
+    
 }
