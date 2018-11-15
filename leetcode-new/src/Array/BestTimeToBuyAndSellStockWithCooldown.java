@@ -23,7 +23,7 @@ public class BestTimeToBuyAndSellStockWithCooldown {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int[] a = {7,3,1,4,9,4,5,3};
-		System.out.println(maxProfit(a));
+		System.out.println(maxProfit2(a));
 	}
 	
 	public static int maxProfit(int[] prices) {
@@ -36,5 +36,16 @@ public class BestTimeToBuyAndSellStockWithCooldown {
         }
         return res;
     }
+	
+	public static int maxProfit2(int[] prices) {
+	    int sell = 0, prev_sell = 0, buy = Integer.MIN_VALUE, prev_buy;
+	    for (int price : prices) {
+	        prev_buy = buy;
+	        buy = Math.max(prev_sell - price, prev_buy);
+	        prev_sell = sell;
+	        sell = Math.max(prev_buy + price, prev_sell);
+	    }
+	    return sell;
+	}
 
 }
