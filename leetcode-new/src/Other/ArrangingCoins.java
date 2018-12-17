@@ -1,6 +1,6 @@
 package Other;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
+
 
 import java.util.concurrent.CountDownLatch;
 

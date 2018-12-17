@@ -1,9 +1,5 @@
 package Array;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
-
-import javax.xml.transform.Templates;
-
 /**
  * 485. Max Consecutive Ones
  * @author Reuxs

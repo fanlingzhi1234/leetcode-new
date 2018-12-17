@@ -1,5 +1,5 @@
 package BinarySearch;
-import static org.hamcrest.CoreMatchers.instanceOf;
+
 
 /**
  * 35. Search Insert Position
