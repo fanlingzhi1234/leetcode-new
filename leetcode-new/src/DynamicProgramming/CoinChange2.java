@@ -1,4 +1,7 @@
 package DynamicProgramming;
+
+import static org.hamcrest.CoreMatchers.instanceOf;
+
 /**
 * @author Rexus 
 * @version Build Time：Dec 1, 2018 2:47:23 AM
@@ -46,10 +49,46 @@ public class CoinChange2 {
 
 	}
 	public static int change(int amount, int[] coins) {
-        int result=0;
-        int[] index;
         
-        return result;
+        int row = amount +1;
+        int col = coins.length+1;
+        int[][] results = new int[row][col];
+        results[0][0] = 1;
+        
+        for(int i=1; i<col; i++) {
+        	results[0][i] = 0;
+        	for(int j = 0; j< col;j++) {
+        		//results[i][j] = results[0];
+        	}
+        }
+        
+        
+        return results[row][col];
+    }
+	//13ms, 31%
+	public int change2(int amount, int[] coins) {
+        int[][] dp = new int[coins.length+1][amount+1];
+        dp[0][0] = 1;
+        
+        for (int i = 1; i <= coins.length; i++) {
+            dp[i][0] = 1;
+            for (int j = 1; j <= amount; j++) {
+                dp[i][j] = dp[i-1][j] + (j >= coins[i-1] ? dp[i][j-coins[i-1]] : 0);
+            }
+        }
+        return dp[coins.length][amount];
+    }
+	
+	//7ms, 48%
+	public int change3(int amount, int[] coins) {
+        int[] dp = new int[amount + 1];
+        dp[0] = 1;
+        for (int coin : coins) {
+            for (int i = coin; i <= amount; i++) {
+                dp[i] += dp[i-coin];
+            }
+        }
+        return dp[amount];
     }
 
 }
