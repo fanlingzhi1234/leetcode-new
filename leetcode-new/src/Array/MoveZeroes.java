@@ -1,7 +1,6 @@
 package Array;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
-import static org.junit.Assert.fail;
+
 
 /**
 * @author Rexus 

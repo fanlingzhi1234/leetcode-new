@@ -1,6 +1,6 @@
 package Array;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
+
 
 import java.util.Arrays;
 import java.util.HashSet;
