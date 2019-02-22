@@ -45,6 +45,7 @@ public class RevealCardsInIncreasingOrder {
 	
 	public int[] deckRevealedIncreasing(int[] deck) {
         
+		return deck;
     }
 
 }
