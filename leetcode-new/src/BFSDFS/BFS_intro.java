@@ -1,4 +1,4 @@
-package Graphic;
+package BFSDFS;
 
 import java.util.Collection;
 import java.util.Iterator;
